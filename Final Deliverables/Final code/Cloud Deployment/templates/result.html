@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Result</title>
+</head>
+
+<body>
+<h2 class='container-heading'><span class="heading_font">Liver Disease Prediction</span></h2>
+
+
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            
+
+        
+
+        <!-- Result -->
+		<div class="results">
+			{% if prediction==1 %}
+				<h1><span class='danger'>Oops! 🙁<br><br>You have LIVER DISEASE :/ <br><br>Please Consult a Doctor.</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='dr.gif')}}" alt="LIVER Image">
+			{% elif prediction==2 %}
+				<h1><span class='safe'>🤩 Congratulation! 🤩<br><br>You DON'T have LIVER DISEASE :)</span></h1>
+				<img class="gif1" src="{{ url_for('static', filename='yes.webp')}}" alt="Not LIVER Image ">
+			{% endif %}
+		</div>
+        </form>
+
+    </div>
+    
+
+<style>
+
+/* Background Image */
+body
+{
+ background-image: url("https://img.freepik.com/free-vector/human-internal-organ-with-liver_1308-108849.jpg?w=740&t=st=1668402762~exp=1668403362~hmac=dc30082eef6209d0d0b838eb83b349dc8999e026472f39032ca04c3a79a870b3");
+    height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: absolute;
+            background-repeat: no-repeat;
+        background-size: cover;
+   
+    
+}
+
+/* Color */
+body{
+	font-family: Arial, Helvetica,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+    color:whitesmoke;
+}
+
+
+/* Heading Font */
+.container-heading{
+    margin: 0;
+}
+
+.heading_font{
+    color: whitesmoke;
+    font-family: 'Garamond', Serif;
+	font-size: 50px;
+	font-weight: normal;
+}
+.container{
+        background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0, 0.4); 
+            border: 3px solid #f1f1f1;
+    }
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</style>
+
+
+</body>
+
+</html>
